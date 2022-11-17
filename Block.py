@@ -3,6 +3,7 @@ import random
 import MerkleRoot
 import json
 import Transaction
+import Nonce
 
 
 class Block:
@@ -20,7 +21,7 @@ class Block:
         # 트랜잭션 해쉬 리스트
         self.transaction_hash = list(map(lambda v: str(v), self.transaction))
         # 랜덤 넌스
-        self._nonce = random.randrange(1, 999999999999)
+        self._nonce = random.randrange(1, Nonce.max)
 
     def add_transaction(self, sender, receiver, amount):
         # 트랜잭션 만들고
@@ -46,4 +47,4 @@ class Block:
 
     def __str__(self):
         # 블록 해쉬 만들기
-        return MerkleRoot.hashValue(f'{json.dumps(self.header)}&{self._nonce}&{",".join(self.transaction_hash)}')
+        return MerkleRoot.hash_value(f'{json.dumps(self.header)}&{self._nonce}&{",".join(self.transaction_hash)}')

@@ -14,5 +14,5 @@ class Chain:
         self.blocks.append(block)
 
     def last_block(self):
-        # 마지막 블록 추가
+        # 마지막 블록
         return self.blocks[-1]

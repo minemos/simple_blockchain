@@ -10,4 +10,4 @@ class Transaction:
 
     def __str__(self):
         # 트랜잭션 해싱
-        return MerkleRoot.hashValue(f'{self.sender}&{self.receiver}&{self.amount}')
+        return MerkleRoot.hash_value(f'{self.sender}&{self.receiver}&{self.amount}')

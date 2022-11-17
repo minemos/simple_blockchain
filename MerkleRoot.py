@@ -1,7 +1,5 @@
 import hashlib
 
-# Hash pairs of items recursively until a single value is obtained
-
 
 def calculate_merkle_root(hashList):
     # 해쉬 리스트 크기가 1이면 반환
@@ -15,7 +13,7 @@ def calculate_merkle_root(hashList):
         newHashList.append(_hash(hashList[i], hashList[i+1]))
     # 만약 리스트 크기가 홀수면
     if len(hashList) % 2 == 1:
-        # 해쉬 리스트에 따로 추가
+        # 마지막 해쉬만 따로 리스트에 추가
         newHashList.append(_hash(hashList[-1], hashList[-1]))
     # 재귀
     return calculate_merkle_root(newHashList)
@@ -28,6 +26,6 @@ def _hash(a, b):
     return h
 
 
-def hashValue(v):
+def hash_value(v):
     # 단순 해쉬 변환
     return hashlib.sha256(v.encode()).hexdigest()
