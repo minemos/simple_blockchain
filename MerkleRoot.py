@@ -1,5 +1,5 @@
 import hashlib
-
+# 여기 유심히 봐야함
 
 def calculate_merkle_root(hashList):
     # 해쉬 리스트 크기가 1이면 반환
